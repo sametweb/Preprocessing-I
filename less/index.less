@@ -131,13 +131,11 @@ table {
 
 /* Set every element's box-sizing to border-box */
 
-/* FONT STYLING VARIABLES */
 @reg-font-size: 1.8rem;
 @section-title-font-size: 2.5rem;
 @page-title-font-size: 4rem;
 @full: 100%;
 
-/* BOX STYLING VARIABLES */
 @border: 1px dotted #555;
 @margin-bottom-container: 25px;
 @margin-bottom-title: 10px;
@@ -158,11 +156,26 @@ body {
   font-size: @reg-font-size;
   line-height: @reg-font-size + 0.7rem;
   padding-top: 40px;
+  background: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
 }
 
 #root {
   width: 900px;
   margin: 0 auto;
+  background: #fff;
+  box-sizing: content-box;
+  padding: 30px;
+  @media (max-width: 500px) {
+    width: @full;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+  }
 }
 
 .flex {
@@ -175,6 +188,15 @@ body {
   flex-direction: column;
 }
 
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 2px;
+  border-bottom: @border;
+  border-right: @border;
+  border-radius: @radius;
+}
+
 .before {
   text-transform: uppercase;
   clear: both;
@@ -185,31 +207,60 @@ body {
 }
 
 header {
+  .menu {
+    a {
+      .tag();
+    }
+    .flex();
+    justify-content: space-around;
+    margin: @margin-bottom-container;
+    @media (max-width: 500px) {
+      align-items: stretch;
+    }
+  }
   margin-bottom: @margin-bottom-container;
   .logo {
     .flex();
     align-items: baseline;
     margin-bottom: @margin-bottom-title;
 
+    @media (max-width: 500px) {
+      display: block;
+    }
+
     .page-title {
       font-size: @page-title-font-size;
       text-transform: uppercase;
       margin-right: @margin-bottom-container;
+      @media (max-width: 500px) {
+        width: @full;
+        margin-right: 0;
+        margin-bottom: @margin-bottom-container;
+      }
     }
 
     .job-title {
       font-size: (@page-title-font-size) - 2rem;
       letter-spacing: 1rem;
       margin-bottom: @margin-bottom-title;
+      @media (max-width: 500px) {
+        width: @full;
+      }
     }
   }
 
   .headline {
     padding: 20px 0;
     .flex();
+    @media (max-width: 500px) {
+      display: block;
+    }
     .description {
       width: @description-width;
-
+      @media (max-width: 500px) {
+        width: @full;
+        margin-bottom: @margin-bottom-container;
+      }
       &::before {
         content: "Description";
         .before();
@@ -221,14 +272,12 @@ header {
       flex-wrap: wrap;
       justify-content: center;
       .skill {
-        display: inline-block;
-        padding: 3px 10px;
-        margin: 2px;
-        border-bottom: @border;
-        border-right: @border;
-        border-radius: @radius;
+        .tag();
       }
-
+      @media (max-width: 500px) {
+        width: @full;
+        margin-bottom: @margin-bottom-container;
+      }
       &::before {
         content: "Skills";
         .before();
@@ -248,13 +297,28 @@ section {
     padding: 0 0 2px 0;
     margin-bottom: @margin-bottom-title;
     font-weight: bold;
+    @media (max-width: 500px) {
+      font-size: @section-title-font-size - 20%;
+    }
   }
-}
 
-.row {
-  .flex();
-
-  span::after {
-    content: ",\00a0";
+  .row {
+    .flex();
+    span {
+      &:first-child {
+        font-weight: bold;
+      }
+      &:nth-child(2) {
+        font-style: italic;
+      }
+      &:last-child {
+        &::after {
+          content: "";
+        }
+      }
+      &::after {
+        content: ",\00a0";
+      }
+    }
   }
 }

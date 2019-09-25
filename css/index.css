@@ -127,8 +127,6 @@ table {
   border-spacing: 0;
 }
 /* Set every element's box-sizing to border-box */
-/* FONT STYLING VARIABLES */
-/* BOX STYLING VARIABLES */
 * {
   box-sizing: border-box;
 }
@@ -141,10 +139,26 @@ body {
   font-size: 1.8rem;
   line-height: 2.5rem;
   padding-top: 40px;
+  background: #333;
+}
+a {
+  text-decoration: none;
+  color: #000;
 }
 #root {
   width: 900px;
   margin: 0 auto;
+  background: #fff;
+  box-sizing: content-box;
+  padding: 30px;
+}
+@media (max-width: 500px) {
+  #root {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+  }
 }
 .flex {
   display: flex;
@@ -153,6 +167,14 @@ body {
 }
 .col {
   flex-direction: column;
+}
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 2px;
+  border-bottom: 1px dotted #555;
+  border-right: 1px dotted #555;
+  border-radius: 3px;
 }
 .before {
   text-transform: uppercase;
@@ -165,6 +187,26 @@ body {
 header {
   margin-bottom: 25px;
 }
+header .menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 25px;
+}
+header .menu a {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 2px;
+  border-bottom: 1px dotted #555;
+  border-right: 1px dotted #555;
+  border-radius: 3px;
+}
+@media (max-width: 500px) {
+  header .menu {
+    align-items: stretch;
+  }
+}
 header .logo {
   display: flex;
   justify-content: flex-start;
@@ -172,15 +214,32 @@ header .logo {
   align-items: baseline;
   margin-bottom: 10px;
 }
+@media (max-width: 500px) {
+  header .logo {
+    display: block;
+  }
+}
 header .logo .page-title {
   font-size: 4rem;
   text-transform: uppercase;
   margin-right: 25px;
 }
+@media (max-width: 500px) {
+  header .logo .page-title {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
+}
 header .logo .job-title {
   font-size: 2rem;
   letter-spacing: 1rem;
   margin-bottom: 10px;
+}
+@media (max-width: 500px) {
+  header .logo .job-title {
+    width: 100%;
+  }
 }
 header .headline {
   padding: 20px 0;
@@ -188,8 +247,19 @@ header .headline {
   justify-content: flex-start;
   align-items: flex-start;
 }
+@media (max-width: 500px) {
+  header .headline {
+    display: block;
+  }
+}
 header .headline .description {
   width: 70%;
+}
+@media (max-width: 500px) {
+  header .headline .description {
+    width: 100%;
+    margin-bottom: 25px;
+  }
 }
 header .headline .description::before {
   content: "Description";
@@ -216,6 +286,12 @@ header .headline .skills .skill {
   border-right: 1px dotted #555;
   border-radius: 3px;
 }
+@media (max-width: 500px) {
+  header .headline .skills {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
 header .headline .skills::before {
   content: "Skills";
   text-transform: uppercase;
@@ -237,11 +313,25 @@ section .section-title {
   margin-bottom: 10px;
   font-weight: bold;
 }
-.row {
+@media (max-width: 500px) {
+  section .section-title {
+    font-size: -17.5rem;
+  }
+}
+section .row {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
-.row span::after {
+section .row span:first-child {
+  font-weight: bold;
+}
+section .row span:nth-child(2) {
+  font-style: italic;
+}
+section .row span:last-child::after {
+  content: "";
+}
+section .row span::after {
   content: ",\00a0";
 }
