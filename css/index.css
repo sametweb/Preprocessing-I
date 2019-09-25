@@ -217,6 +217,7 @@ header .logo {
 @media (max-width: 500px) {
   header .logo {
     display: block;
+    text-align: center;
   }
 }
 header .logo .page-title {
@@ -239,6 +240,7 @@ header .logo .job-title {
 @media (max-width: 500px) {
   header .logo .job-title {
     width: 100%;
+    letter-spacing: 0.8rem;
   }
 }
 header .headline {
@@ -323,6 +325,18 @@ section .row {
   justify-content: flex-start;
   align-items: flex-start;
 }
+@media (max-width: 500px) {
+  section .row {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 500px) {
+  section .row span {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
 section .row span:first-child {
   font-weight: bold;
 }
@@ -334,4 +348,40 @@ section .row span:last-child::after {
 }
 section .row span::after {
   content: ",\00a0";
+}
+@media (max-width: 500px) {
+  section .row span::after {
+    content: "";
+  }
+}
+section .row span.time {
+  margin-bottom: 25px;
+}
+footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+@media (max-width: 500px) {
+  footer {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+@media (max-width: 500px) {
+  footer span {
+    display: block;
+    width: 100%;
+  }
+}
+footer span:last-child::after {
+  content: "";
+}
+footer span::after {
+  content: "\00a0|\00a0";
+}
+@media (max-width: 500px) {
+  footer span::after {
+    content: "";
+  }
 }

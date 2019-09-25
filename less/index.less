@@ -207,18 +207,18 @@ a {
 }
 
 header {
+  margin-bottom: @margin-bottom-container;
   .menu {
+    .flex();
     a {
       .tag();
     }
-    .flex();
     justify-content: space-around;
     margin: @margin-bottom-container;
     @media (max-width: 500px) {
       align-items: stretch;
     }
   }
-  margin-bottom: @margin-bottom-container;
   .logo {
     .flex();
     align-items: baseline;
@@ -226,6 +226,7 @@ header {
 
     @media (max-width: 500px) {
       display: block;
+      text-align: center;
     }
 
     .page-title {
@@ -240,11 +241,12 @@ header {
     }
 
     .job-title {
-      font-size: (@page-title-font-size) - 2rem;
+      font-size: @page-title-font-size - 2rem;
       letter-spacing: 1rem;
       margin-bottom: @margin-bottom-title;
       @media (max-width: 500px) {
         width: @full;
+        letter-spacing: 0.8rem;
       }
     }
   }
@@ -304,7 +306,15 @@ section {
 
   .row {
     .flex();
+    @media (max-width: 500px) {
+      flex-wrap: wrap;
+    }
     span {
+      @media (max-width: 500px) {
+        display: block;
+        width: @full;
+        text-align: center;
+      }
       &:first-child {
         font-weight: bold;
       }
@@ -318,6 +328,38 @@ section {
       }
       &::after {
         content: ",\00a0";
+        @media (max-width: 500px) {
+          content: "";
+        }
+      }
+      &.time {
+        margin-bottom: @margin-bottom-container;
+      }
+    }
+  }
+}
+
+footer {
+  .flex();
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  span {
+    @media (max-width: 500px) {
+      display: block;
+      width: @full;
+    }
+
+    &:last-child {
+      &::after {
+        content: "";
+      }
+    }
+    &::after {
+      content: "\00a0|\00a0";
+      @media (max-width: 500px) {
+        content: "";
       }
     }
   }
