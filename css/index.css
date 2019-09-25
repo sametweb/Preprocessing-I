@@ -176,6 +176,11 @@ a {
   border-right: 1px dotted #555;
   border-radius: 3px;
 }
+.tag:hover {
+  background: #222;
+  color: #fff;
+  border-color: #fff;
+}
 .before {
   text-transform: uppercase;
   clear: both;
@@ -201,6 +206,11 @@ header .menu a {
   border-bottom: 1px dotted #555;
   border-right: 1px dotted #555;
   border-radius: 3px;
+}
+header .menu a:hover {
+  background: #222;
+  color: #fff;
+  border-color: #fff;
 }
 @media (max-width: 500px) {
   header .menu {
@@ -287,6 +297,11 @@ header .headline .skills .skill {
   border-bottom: 1px dotted #555;
   border-right: 1px dotted #555;
   border-radius: 3px;
+}
+header .headline .skills .skill:hover {
+  background: #222;
+  color: #fff;
+  border-color: #fff;
 }
 @media (max-width: 500px) {
   header .headline .skills {
