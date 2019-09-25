@@ -127,32 +127,121 @@ table {
   border-spacing: 0;
 }
 /* Set every element's box-sizing to border-box */
+/* FONT STYLING VARIABLES */
+/* BOX STYLING VARIABLES */
 * {
   box-sizing: border-box;
 }
-html,
-body {
+html {
   height: 100%;
   font-size: 62.5%;
+  font-family: "Open Sans", sans-serif;
 }
-/* FONT STYLING VARIABLES */
-/* BOX STYLING VARIABLES */
+body {
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  padding-top: 40px;
+}
+#root {
+  width: 900px;
+  margin: 0 auto;
+}
 .flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
 }
 .col {
   flex-direction: column;
 }
-.page-title {
-  font-size: 1.8rem;
+.before {
+  text-transform: uppercase;
+  clear: both;
+  display: table;
+  font-weight: bold;
   width: 100%;
+  border-bottom: 1px dotted #555;
 }
-.section-title {
-  font-size: 1.4rem;
+header {
+  margin-bottom: 25px;
+}
+header .logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+header .logo .page-title {
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin-right: 25px;
+}
+header .logo .job-title {
+  font-size: 2rem;
+  letter-spacing: 1rem;
+  margin-bottom: 10px;
+}
+header .headline {
+  padding: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+header .headline .description {
+  width: 70%;
+}
+header .headline .description::before {
+  content: "Description";
+  text-transform: uppercase;
+  clear: both;
+  display: table;
+  font-weight: bold;
+  width: 100%;
+  border-bottom: 1px dotted #555;
+}
+header .headline .skills {
+  width: 30%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+header .headline .skills .skill {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 2px;
+  border-bottom: 1px dotted #555;
+  border-right: 1px dotted #555;
+  border-radius: 3px;
+}
+header .headline .skills::before {
+  content: "Skills";
+  text-transform: uppercase;
+  clear: both;
+  display: table;
+  font-weight: bold;
+  width: 100%;
+  border-bottom: 1px dotted #555;
+}
+section {
+  margin-bottom: 25px;
+}
+section .section-title {
+  font-size: 2.5rem;
   text-transform: uppercase;
   border-bottom: 1px dotted #555;
   width: 100%;
   padding: 0 0 2px 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.row span::after {
+  content: ",\00a0";
 }
