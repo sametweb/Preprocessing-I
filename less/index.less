@@ -4,56 +4,368 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
+
+@reg-font-size: 1.8rem;
+@section-title-font-size: 2.5rem;
+@page-title-font-size: 4rem;
+@full: 100%;
+
+@border: 1px dotted #555;
+@margin-bottom-container: 25px;
+@margin-bottom-title: 10px;
+@description-width: 70%;
+@radius: 3px;
+
 * {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  font-size: @reg-font-size;
+  line-height: @reg-font-size + 0.7rem;
+  padding-top: 40px;
+  background: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+#root {
+  width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: content-box;
+  padding: 30px;
+  @media (max-width: 500px) {
+    width: @full;
+    margin: 0;
+    padding: 10px;
     box-sizing: border-box;
+  }
 }
 
-html, body {
-    height: 100%;
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
+.col {
+  flex-direction: column;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 2px;
+  border-bottom: @border;
+  border-right: @border;
+  border-radius: @radius;
+  &:hover {
+    background: #222;
+    color: #fff;
+    border-color: #fff;
+  }
+}
+
+.before {
+  text-transform: uppercase;
+  clear: both;
+  display: table;
+  font-weight: bold;
+  width: 100%;
+  border-bottom: @border;
+}
+
+header {
+  margin-bottom: @margin-bottom-container;
+  .menu {
+    .flex();
+    a {
+      .tag();
+    }
+    justify-content: space-around;
+    margin: @margin-bottom-container;
+    @media (max-width: 500px) {
+      align-items: stretch;
+    }
+  }
+  .logo {
+    .flex();
+    align-items: baseline;
+    margin-bottom: @margin-bottom-title;
+
+    @media (max-width: 500px) {
+      display: block;
+      text-align: center;
+    }
+
+    .page-title {
+      font-size: @page-title-font-size;
+      text-transform: uppercase;
+      margin-right: @margin-bottom-container;
+      @media (max-width: 500px) {
+        width: @full;
+        margin-right: 0;
+        margin-bottom: @margin-bottom-container;
+      }
+    }
+
+    .job-title {
+      font-size: @page-title-font-size - 2rem;
+      letter-spacing: 1rem;
+      margin-bottom: @margin-bottom-title;
+      @media (max-width: 500px) {
+        width: @full;
+        letter-spacing: 0.8rem;
+      }
+    }
+  }
+
+  .headline {
+    padding: 20px 0;
+    .flex();
+    @media (max-width: 500px) {
+      display: block;
+    }
+    .description {
+      width: @description-width;
+      @media (max-width: 500px) {
+        width: @full;
+        margin-bottom: @margin-bottom-container;
+      }
+      &::before {
+        content: "Description";
+        .before();
+      }
+    }
+    .skills {
+      width: 100% - @description-width;
+      .flex();
+      flex-wrap: wrap;
+      justify-content: center;
+      .skill {
+        .tag();
+      }
+      @media (max-width: 500px) {
+        width: @full;
+        margin-bottom: @margin-bottom-container;
+      }
+      &::before {
+        content: "Skills";
+        .before();
+      }
+    }
+  }
+}
+
+section {
+  margin-bottom: @margin-bottom-container;
+
+  .section-title {
+    font-size: @section-title-font-size;
+    text-transform: uppercase;
+    border-bottom: @border;
+    width: @full;
+    padding: 0 0 2px 0;
+    margin-bottom: @margin-bottom-title;
+    font-weight: bold;
+    @media (max-width: 500px) {
+      font-size: @section-title-font-size - 20%;
+    }
+  }
+
+  .row {
+    .flex();
+    @media (max-width: 500px) {
+      flex-wrap: wrap;
+    }
+    span {
+      @media (max-width: 500px) {
+        display: block;
+        width: @full;
+        text-align: center;
+      }
+      &:first-child {
+        font-weight: bold;
+      }
+      &:nth-child(2) {
+        font-style: italic;
+      }
+      &:last-child {
+        &::after {
+          content: "";
+        }
+      }
+      &::after {
+        content: ",\00a0";
+        @media (max-width: 500px) {
+          content: "";
+        }
+      }
+      &.time {
+        margin-bottom: @margin-bottom-container;
+      }
+    }
+  }
+}
+
+footer {
+  .flex();
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  span {
+    @media (max-width: 500px) {
+      display: block;
+      width: @full;
+    }
+
+    &:last-child {
+      &::after {
+        content: "";
+      }
+    }
+    &::after {
+      content: "\00a0|\00a0";
+      @media (max-width: 500px) {
+        content: "";
+      }
+    }
+  }
+}

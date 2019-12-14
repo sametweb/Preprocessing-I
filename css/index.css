@@ -1,1 +1,402 @@
-/* Compile your LESS file! */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Set every element's box-sizing to border-box */
+* {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  font-size: 62.5%;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  padding-top: 40px;
+  background: #333;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+#root {
+  width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: content-box;
+  padding: 30px;
+}
+@media (max-width: 500px) {
+  #root {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.col {
+  flex-direction: column;
+}
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 2px;
+  border-bottom: 1px dotted #555;
+  border-right: 1px dotted #555;
+  border-radius: 3px;
+}
+.tag:hover {
+  background: #222;
+  color: #fff;
+  border-color: #fff;
+}
+.before {
+  text-transform: uppercase;
+  clear: both;
+  display: table;
+  font-weight: bold;
+  width: 100%;
+  border-bottom: 1px dotted #555;
+}
+header {
+  margin-bottom: 25px;
+}
+header .menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 25px;
+}
+header .menu a {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 2px;
+  border-bottom: 1px dotted #555;
+  border-right: 1px dotted #555;
+  border-radius: 3px;
+}
+header .menu a:hover {
+  background: #222;
+  color: #fff;
+  border-color: #fff;
+}
+@media (max-width: 500px) {
+  header .menu {
+    align-items: stretch;
+  }
+}
+header .logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+@media (max-width: 500px) {
+  header .logo {
+    display: block;
+    text-align: center;
+  }
+}
+header .logo .page-title {
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin-right: 25px;
+}
+@media (max-width: 500px) {
+  header .logo .page-title {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
+}
+header .logo .job-title {
+  font-size: 2rem;
+  letter-spacing: 1rem;
+  margin-bottom: 10px;
+}
+@media (max-width: 500px) {
+  header .logo .job-title {
+    width: 100%;
+    letter-spacing: 0.8rem;
+  }
+}
+header .headline {
+  padding: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+@media (max-width: 500px) {
+  header .headline {
+    display: block;
+  }
+}
+header .headline .description {
+  width: 70%;
+}
+@media (max-width: 500px) {
+  header .headline .description {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
+header .headline .description::before {
+  content: "Description";
+  text-transform: uppercase;
+  clear: both;
+  display: table;
+  font-weight: bold;
+  width: 100%;
+  border-bottom: 1px dotted #555;
+}
+header .headline .skills {
+  width: 30%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+header .headline .skills .skill {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 2px;
+  border-bottom: 1px dotted #555;
+  border-right: 1px dotted #555;
+  border-radius: 3px;
+}
+header .headline .skills .skill:hover {
+  background: #222;
+  color: #fff;
+  border-color: #fff;
+}
+@media (max-width: 500px) {
+  header .headline .skills {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
+header .headline .skills::before {
+  content: "Skills";
+  text-transform: uppercase;
+  clear: both;
+  display: table;
+  font-weight: bold;
+  width: 100%;
+  border-bottom: 1px dotted #555;
+}
+section {
+  margin-bottom: 25px;
+}
+section .section-title {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  border-bottom: 1px dotted #555;
+  width: 100%;
+  padding: 0 0 2px 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+@media (max-width: 500px) {
+  section .section-title {
+    font-size: -17.5rem;
+  }
+}
+section .row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+@media (max-width: 500px) {
+  section .row {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 500px) {
+  section .row span {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+section .row span:first-child {
+  font-weight: bold;
+}
+section .row span:nth-child(2) {
+  font-style: italic;
+}
+section .row span:last-child::after {
+  content: "";
+}
+section .row span::after {
+  content: ",\00a0";
+}
+@media (max-width: 500px) {
+  section .row span::after {
+    content: "";
+  }
+}
+section .row span.time {
+  margin-bottom: 25px;
+}
+footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+@media (max-width: 500px) {
+  footer {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+@media (max-width: 500px) {
+  footer span {
+    display: block;
+    width: 100%;
+  }
+}
+footer span:last-child::after {
+  content: "";
+}
+footer span::after {
+  content: "\00a0|\00a0";
+}
+@media (max-width: 500px) {
+  footer span::after {
+    content: "";
+  }
+}
